@@ -1,0 +1,10 @@
+{
+  "name": "robot-init",
+  "version": "0.0.1",
+  "description": "Sets up adhoc or wifi",
+  "author": "Josh Moore",
+  "dependencies": {
+    "mraa": "~0.8.0",
+    "infinite-loop": "0.2.2"
+  }
+}
