@@ -7,7 +7,9 @@ pin13.dir(mraa.DIR_IN);
 
 var child;
 
-function puts(error, stdout, stderr) { sys.puts(stdout) }
+function puts(error, stdout, stderr) {
+    sys.puts(stdout)
+}
 exec("ls -la", puts);
 
 var value = pin13.read();
