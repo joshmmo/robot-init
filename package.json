@@ -4,7 +4,6 @@
   "description": "Sets up adhoc or wifi",
   "author": "Josh Moore",
   "dependencies": {
-    "mraa": "~0.8.0",
     "infinite-loop": "0.2.2"
   }
 }

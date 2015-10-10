@@ -1,4 +1,4 @@
-var mraa = require('mraa');
+//var mraa = require('mraa');
 var InfiniteLoop = require('infinite-loop');
 
 var il = new InfiniteLoop;
