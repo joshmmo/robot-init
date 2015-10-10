@@ -10,11 +10,18 @@ var child;
 function puts(error, stdout, stderr) {
     sys.puts(stdout)
 }
-exec("ls -la", puts);
+
 
 var value = pin13.read();
 if (value == 1) {
     console.log("Wifi Enabled");
 } else {
-    console.log("Ad-Hoc Enabled");
+    var ssid = "eRobot" + randomInt(1, 1000000).toString(16);
+    var ip = "192.168.1.2";
+    exec("sh wpacli_ibss_open.sh "+ssid + "&& ifconfig wlan0 " + ip, puts);
+    console.log("Ad-Hoc Enabled. IP Of this machine: " + ip);
+}
+
+function randomInt(low, high) {
+    return Math.floor(Math.random() * (high - low) + low);
 }
