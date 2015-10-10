@@ -4,6 +4,6 @@
   "description": "Sets up adhoc or wifi",
   "author": "Josh Moore",
   "dependencies": {
-    "infinite-loop": "0.2.2"
+    "sys": "0.0.1"
   }
 }
