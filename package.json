@@ -4,6 +4,7 @@
   "description": "Sets up adhoc or wifi",
   "author": "Josh Moore",
   "dependencies": {
-    "sys": "0.0.1"
+    "sys": "~0.0.1",
+    "async": "~1.4.2"
   }
 }
