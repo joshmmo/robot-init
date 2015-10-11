@@ -1,7 +1,8 @@
 var mraa = require('mraa');
 var sys = require('sys');
 var async = require('async');
-var exec = require('child_process').exec;
+//var exec = require('child_process').exec;
+require('shelljs/global');
 
 var pin13 = new mraa.Gpio(13);
 pin13.dir(mraa.DIR_IN);
@@ -22,10 +23,13 @@ if (value == 1) {
 
     async.series([
         function(){
-            exec("sh wpacli_ibss_open.sh "+ssid + "&& ifconfig wlan0 " + ip, log);
+            //exec("sh wpacli_ibss_open.sh "+ssid + "&& ifconfig wlan0 " + ip, log);
+            var adhocOutput = exec("sh wpacli_ibss_open.sh "+ssid + "&& ifconfig wlan0 " + ip).output;
+            console.log(adhocOutput);
         },
         function(){
-            exec("ifconfig wlan0 " + ip, log);
+            //exec("ifconfig wlan0 " + ip, log);
+            var wlan = exec("ifconfig wlan0 " + ip).output;
             console.log("IP: " + ip);
         }
     ]);
