@@ -1,7 +1,7 @@
-var mraa = require('mraa');
+var mraa = require('/usr/lib/node_modules/mraa/mraa');
 //var sys = require('sys');                      
 //var exec = require('child_process').exec;      
-require('shelljs/global');
+require('/usr/lib/node_modules/shelljs/global');
 
 var path = require('path');
 var appDir = path.dirname(require.main.filename);
