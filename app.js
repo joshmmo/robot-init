@@ -1,5 +1,5 @@
 var mraa = require('mraa');
-var sys = require('sys');
+//var sys = require('sys');
 var async = require('async');
 //var exec = require('child_process').exec;
 require('shelljs/global');
@@ -22,7 +22,7 @@ if (value == 1) {
     console.log("Ad-Hoc Enabled.");
 
     async.series([
-        function(callback){
+        function(){
             //exec("sh wpacli_ibss_open.sh "+ssid + "&& ifconfig wlan0 " + ip, log);
             //var adhocOutput = exec().output;
             //console.log(adhocOutput);
@@ -30,10 +30,9 @@ if (value == 1) {
             exec('sh wpacli_ibss_open.sh '+ssid + '&& ifconfig wlan0 ' + ip, function(status, output) {
                 console.log('Exit status:', status);
                 console.log('Program output:', output);
-                callback();
             });
         },
-        function(callback){
+        function(){
             //exec("ifconfig wlan0 " + ip, log);
             //var wlan = exec("ifconfig wlan0 " + ip).output;
             //console.log("IP: " + ip);
@@ -41,7 +40,7 @@ if (value == 1) {
             exec('ifconfig wlan0 192.168.1.2', function(status, output) {
                 console.log('Exit status:', status);
                 console.log('Program output:', output);
-                callback();
+                console.log('Ifconfig ran');
             });
         }
     ]);
