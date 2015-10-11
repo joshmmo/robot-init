@@ -22,15 +22,27 @@ if (value == 1) {
     console.log("Ad-Hoc Enabled.");
 
     async.series([
-        function(){
+        function(callback){
             //exec("sh wpacli_ibss_open.sh "+ssid + "&& ifconfig wlan0 " + ip, log);
-            var adhocOutput = exec("sh wpacli_ibss_open.sh "+ssid + "&& ifconfig wlan0 " + ip).output;
-            console.log(adhocOutput);
+            //var adhocOutput = exec().output;
+            //console.log(adhocOutput);
+
+            exec('sh wpacli_ibss_open.sh "+ssid + "&& ifconfig wlan0 ' + ip, function(status, output) {
+                console.log('Exit status:', status);
+                console.log('Program output:', output);
+                callback();
+            });
         },
-        function(){
+        function(callback){
             //exec("ifconfig wlan0 " + ip, log);
-            var wlan = exec("ifconfig wlan0 " + ip).output;
-            console.log("IP: " + ip);
+            //var wlan = exec("ifconfig wlan0 " + ip).output;
+            //console.log("IP: " + ip);
+
+            exec('ifconfig wlan0 ' + ip, function(status, output) {
+                console.log('Exit status:', status);
+                console.log('Program output:', output);
+                callback();
+            });
         }
     ]);
 
