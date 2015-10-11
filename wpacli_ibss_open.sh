@@ -18,3 +18,4 @@ $rmt wpa_cli -iwlan0 set_network 0 scan_ssid 1
 $rmt wpa_cli -iwlan0 select_network 0
 $rmt wpa_cli -iwlan0 enable_network 0
 $rmt wpa_cli -iwlan0 status
+ifconfig wlan0 192.168.1.2
