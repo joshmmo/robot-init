@@ -9,6 +9,7 @@ $rmt wpa_cli -iwlan0 set_network 0 frequency 2412
 $rmt wpa_cli -iwlan0 set_network 0 mode 1
 if [ ! -n "$rmt" ] ; then
 $rmt wpa_cli -iwlan0 set_network 0 ssid \"$1\"
+ifconfig wlan0 192.168.1.2
 else
 $rmt wpa_cli -iwlan0 set_network 0 ssid '\"'$1'\"'
 fi
