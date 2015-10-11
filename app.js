@@ -5,12 +5,9 @@ var exec = require('child_process').exec;
 var pin13 = new mraa.Gpio(13);
 pin13.dir(mraa.DIR_IN);
 
-var child;
-
 function puts(error, stdout, stderr) {
     sys.puts(stdout)
 }
-
 
 var value = pin13.read();
 if (value == 1) {
@@ -18,8 +15,9 @@ if (value == 1) {
 } else {
     console.log("Ad-Hoc Enabled.");
     var ssid = "eRobot-" + randomInt(1, 10000000).toString(16);
-    var ip = "192.168.1.2";
     exec("sh wpacli_ibss_open.sh "+ssid, puts);
+    var ip = "192.168.1.2";
+    console.log("IP Address: " + ip);
 }
 
 function randomInt(low, high) {
