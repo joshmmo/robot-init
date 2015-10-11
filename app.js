@@ -19,7 +19,7 @@ if (value == 1) {
 } else {
     console.log("Ad-Hoc Enabled.");
     var ssid = "eRobot-" + randomInt(1, 10000000).toString(16);
-    exec("sh "+appDir+"wpacli_ibss_open.sh "+ssid);
+    exec("sh "+appDir+"/wpacli_ibss_open.sh "+ssid);
     var ip = "192.168.1.2";
     console.log("IP Address: " + ip);
 }
