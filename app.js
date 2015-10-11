@@ -1,17 +1,10 @@
 var mraa = require('/usr/lib/node_modules/mraa/mraa');
-//var sys = require('sys');                      
-//var exec = require('child_process').exec;      
 require('/usr/lib/node_modules/shelljs/global');
-
 var path = require('path');
 var appDir = path.dirname(require.main.filename);
 
 var pin13 = new mraa.Gpio(13);
 pin13.dir(mraa.DIR_IN);
-
-function puts(error, stdout, stderr) {
-    //sys.puts(stdout)          
-}
 
 var value = pin13.read();
 if (value == 1) {

@@ -1,0 +1,11 @@
+[Unit]
+Description=erobot-startup
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/root/erobot.sh
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
