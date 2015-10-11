@@ -1,16 +1,7 @@
 var mraa = require('mraa');
-//var sys = require('sys');
-var async = require('async');
-//var exec = require('child_process').exec;
-require('shelljs/global');
 
 var pin13 = new mraa.Gpio(13);
 pin13.dir(mraa.DIR_IN);
-
-function log(error, stdout, stderr) {
-    console.log(stdout);
-}
-
 
 var value = pin13.read();
 if (value == 1) {
@@ -21,30 +12,12 @@ if (value == 1) {
 
     console.log("Ad-Hoc Enabled.");
 
-    async.series([
-        function(){
-            //exec("sh wpacli_ibss_open.sh "+ssid + "&& ifconfig wlan0 " + ip, log);
-            //var adhocOutput = exec().output;
-            //console.log(adhocOutput);
+    //exec("sh wpacli_ibss_open.sh "+ssid + "&& ifconfig wlan0 " + ip, log);
 
-            exec('sh wpacli_ibss_open.sh '+ssid + '&& ifconfig wlan0 ' + ip, function(status, output) {
-                console.log('Exit status:', status);
-                console.log('Program output:', output);
-            });
-        },
-        function(){
-            //exec("ifconfig wlan0 " + ip, log);
-            //var wlan = exec("ifconfig wlan0 " + ip).output;
-            //console.log("IP: " + ip);
+    //exec("ifconfig wlan0 " + ip, log);
 
-            exec('ifconfig wlan0 192.168.1.2', function(status, output) {
-                console.log('Exit status:', status);
-                console.log('Program output:', output);
-                console.log('Ifconfig ran');
-            });
-        }
-    ]);
-
+    var history = child_process.execSync('git log', { encoding: 'utf8' });
+    process.stdout.write(history);
 
 }
 
