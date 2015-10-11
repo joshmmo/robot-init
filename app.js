@@ -27,7 +27,7 @@ if (value == 1) {
             //var adhocOutput = exec().output;
             //console.log(adhocOutput);
 
-            exec('sh wpacli_ibss_open.sh "+ssid + "&& ifconfig wlan0 ' + ip, function(status, output) {
+            exec('sh wpacli_ibss_open.sh '+ssid + '&& ifconfig wlan0 ' + ip, function(status, output) {
                 console.log('Exit status:', status);
                 console.log('Program output:', output);
                 callback();
@@ -38,7 +38,7 @@ if (value == 1) {
             //var wlan = exec("ifconfig wlan0 " + ip).output;
             //console.log("IP: " + ip);
 
-            exec('ifconfig wlan0 ' + ip, function(status, output) {
+            exec('ifconfig wlan0 192.168.1.2', function(status, output) {
                 console.log('Exit status:', status);
                 console.log('Program output:', output);
                 callback();
